@@ -4,8 +4,9 @@ import 'Qoutes.dart';
 class QouteCard extends StatelessWidget {
 
   final Qoutes qoutes;
+  final Function delete;
 
-  QouteCard({this.qoutes});
+  QouteCard({this.qoutes, this.delete});
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +40,17 @@ class QouteCard extends StatelessWidget {
                 color: Colors.black
               ),
             ),
+            SizedBox(height: 10,),
+            FlatButton.icon
+            (
+              onPressed: delete,
+              label: Text('Delete qoutes'),
+              icon: Icon
+              (
+                Icons.delete,
+                color: Colors.white,
+              ),
+            )
           ],
         ),
       ),

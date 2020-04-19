@@ -14,7 +14,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  List <Qoutes> qoutes = 
+  List <Qoutes> qoute = 
   [
     Qoutes(author: 'Patrick bet david', text:'Hustle and work for 40 hours week'),
     Qoutes(author: 'Robert Green', text:'Trust the process of mastery'),
@@ -33,7 +33,16 @@ class _HomeState extends State<Home> {
       ),
       body: Column
       (
-        children: qoutes.map((qoutes) => QouteCard(qoutes: qoutes)).toList(),
+        children: qoute.map((qoutes) => QouteCard
+        (
+          qoutes: qoutes,
+          delete: () 
+          {
+            setState(() {
+              qoute.remove(qoutes);
+            });
+          }
+        )).toList(),
       ),
     );
   }
